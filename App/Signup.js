@@ -1,9 +1,10 @@
 import React from 'react';
-import {Text, TextInput, TouchableOpacity, View, Image} from 'react-native';
+import {Text, TextInput, TouchableOpacity, View, Image, KeyboardAvoidingView} from 'react-native';
 
 export default class Signup extends React.Component {
   render() {
     return (
+      <KeyboardAvoidingView>
       <View>
         <Image
           source={{
@@ -11,9 +12,9 @@ export default class Signup extends React.Component {
               'https://static.toiimg.com/thumb/msid-74660252,width-1200,height-900,resizemode-4/.jpg',
           }}
           style={{
-            width: 100,
-            height: 100,
-            marginLeft: 130,
+            width: 120,
+            height: 120,
+            marginLeft: 135,
             marginTop: 20,
             borderRadius: 30,
             borderBottomLeftRadius: 10,
@@ -46,7 +47,7 @@ export default class Signup extends React.Component {
             fontSize: 17,
             paddingHorizontal: 15,
           }}
-          placeholder="Phone no."
+          placeholder="Phone"
           keyboardType="numeric"></TextInput>
         <TextInput
           style={{
@@ -73,6 +74,7 @@ export default class Signup extends React.Component {
             fontSize: 17,
             paddingHorizontal: 15,
           }}
+          secureTextEntry={true}
           placeholder="Password"></TextInput>
         <TextInput
           style={{
@@ -86,7 +88,8 @@ export default class Signup extends React.Component {
             fontSize: 17,
             paddingHorizontal: 15,
           }}
-          placeholder="Re-enter your Password"></TextInput>
+          secureTextEntry={true}
+          placeholder="Re-enter Password"></TextInput>
 
         <TouchableOpacity
           style={{
@@ -110,6 +113,7 @@ export default class Signup extends React.Component {
           </Text>
         </TouchableOpacity>
       </View>
+      </KeyboardAvoidingView>
     );
   }
 }

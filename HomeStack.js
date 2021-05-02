@@ -10,7 +10,7 @@ const appNavigator = createStackNavigator({
    Home:Signup,
    Login:Login,
    Register:Register,
-   Success:Success
+   Successful:Success
  })
 
 export default createAppContainer(appNavigator)

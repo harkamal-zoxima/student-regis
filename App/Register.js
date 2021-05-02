@@ -6,10 +6,11 @@ import {
   TouchableOpacity,
   Image,
   Picker,
+  KeyboardAvoidingView,
 } from 'react-native';
 import DateTimePickerModal from 'react-native-modal-datetime-picker';
 
-const Register = () => {
+const Register = ({navigation}) => {
   const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
   const [datePicker, setDatePicker] = useState();
 
@@ -21,15 +22,25 @@ const Register = () => {
     setDatePickerVisibility(false);
   };
   return (
+    <KeyboardAvoidingView>
     <View>
-      <View style={{display:"flex",flexDirection:"row"}}>
-
-      <Image
+      <View style={{display: 'flex', flexDirection: 'row'}}>
+        <Image
           source={{
             uri:
               'https://static.toiimg.com/thumb/msid-74660252,width-1200,height-900,resizemode-4/.jpg',
           }}
-          style={{width: 50, height: 50, marginLeft:25,marginTop: 20,marginBottom:0,marginRight:0,borderRadius:30,borderBottomLeftRadius:10,borderBottomRightRadius:10}}
+          style={{
+            width: 50,
+            height: 50,
+            marginLeft: 25,
+            marginTop: 20,
+            marginBottom: 0,
+            marginRight: 0,
+            borderRadius: 30,
+            borderBottomLeftRadius: 10,
+            borderBottomRightRadius: 10,
+          }}
         />
 
         <Text
@@ -42,8 +53,6 @@ const Register = () => {
           }}>
           Student Registration
         </Text>
-
-        
       </View>
 
       <View style={{width: 270, height: 30}}>
@@ -75,15 +84,12 @@ const Register = () => {
           />
         </TouchableOpacity>
 
-
         <DateTimePickerModal
           isVisible={isDatePickerVisible}
           mode="date"
           onConfirm={e => setDatePicker(e.target)}
           onCancel={hideDatePicker}
         />
-
-        
       </View>
 
       <TextInput
@@ -163,7 +169,7 @@ const Register = () => {
           borderWidth: 2,
           marginTop: 20,
           marginLeft: 30,
-          borderRadius:8,
+          borderRadius: 8,
           fontSize: 17,
           color: '#9A9A9A',
           paddingHorizontal: 15,
@@ -222,7 +228,8 @@ const Register = () => {
           marginLeft: 100,
           borderRadius: 3,
           textAlign: 'center',
-        }} onPress={()=>this.props.navigation.navigate("Success")}>
+        }}
+        onPress={() => navigation.navigate('Successful')}>
         <Text
           style={{
             textAlign: 'center',
@@ -234,7 +241,8 @@ const Register = () => {
         </Text>
       </TouchableOpacity>
     </View>
+    </KeyboardAvoidingView>
   );
-};
+}
 
 export default Register;
